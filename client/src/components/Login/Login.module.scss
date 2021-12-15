@@ -1,0 +1,90 @@
+.loginContainer {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .login {
+    background-color: var(--background-color);
+    max-width: 472px;
+    width: 100%;
+    border-radius: 8px;
+    filter: drop-shadow(rgba(0, 0, 0, 0.16) 0px 0px 4px);
+    padding: 0 48px 64px;
+    position: relative;
+
+    .closeButton {
+      width: 100%;
+      height: 48px;
+
+      .close {
+        position: absolute;
+        right: 0;
+        top: 16px;
+        right: 16px;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: rgba(22, 24, 35, 0.06);
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--button-hover-color);
+        }
+      }
+    }
+
+    .loginTitle {
+      font-size: 24px;
+      line-height: 32px;
+      text-align: center;
+      font-weight: 600;
+      cursor: default;
+      margin-bottom: 32px;
+    }
+
+    .loginMethod {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      margin: 0 12px 12px 0;
+      border: 1px solid var(--border-color);
+      border-radius: 2px;
+      cursor: pointer;
+
+      .buttonContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        .iconContainer {
+          width: 44px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-right: 1px solid var(--border-color);
+
+          .icon {
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        .methodName {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

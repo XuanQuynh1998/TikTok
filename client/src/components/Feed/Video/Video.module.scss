@@ -1,0 +1,438 @@
+.lazyload {
+  padding: 20px 0;
+  scroll-margin-top: var(--header-height);
+
+  .lazyloadWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-bottom: 20px;
+    border-bottom: 0.5px solid rgba(22, 24, 35, 0.12);
+
+    .avatarWrapper {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      &:hover h4 {
+        text-decoration: underline;
+      }
+
+      .userAvatar {
+        .avatar {
+          width: 56px;
+          height: 56px;
+        }
+      }
+    }
+  }
+
+  .follow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px 26px 0 0;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    min-width: 88px;
+    padding: 0px 10px;
+    height: 28px;
+  }
+
+  .contain {
+    margin-left: 68px;
+    color: var(--text-color);
+    position: relative;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .userInfo {
+      display: flex;
+      align-items: center;
+
+      h4 {
+        font-size: 18px;
+        padding-right: 6px;
+      }
+
+      span {
+        font-size: 14px;
+        font-weight: 500;
+        font-style: italic;
+      }
+    }
+
+    .content {
+      margin-right: 150px;
+
+      .textContent {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        padding-top: 4px;
+
+        p {
+          margin-right: 4px;
+        }
+      }
+
+      .backgroundMusic {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        padding-bottom: 12px;
+
+        svg {
+          font-size: 20px !important;
+        }
+      }
+    }
+
+    .videoContent {
+      position: relative;
+      display: inline-block;
+
+      video {
+        max-width: calc(450px + ((100vw - 768px) / 1152) * 100);
+        max-height: calc(450px + ((100vw - 768px) / 1152) * 100);
+        border-radius: 5px;
+      }
+
+      &:hover .play,
+      &:hover .volume {
+        opacity: 1;
+      }
+
+      .play,
+      .volume {
+        position: absolute;
+        bottom: 0;
+        opacity: 0;
+        transition: opacity linear 0.3s;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:hover .volumeMeter {
+          visibility: visible;
+        }
+
+        svg {
+          color: #fff;
+        }
+      }
+
+      .play {
+        margin: 0 0 24px 20px;
+        svg {
+          font-size: 16px;
+        }
+      }
+
+      .volume {
+        right: 0;
+        margin: 0 20px 24px 0;
+
+        .volumeBtn {
+          svg {
+            font-size: 22px;
+          }
+        }
+
+        .volumeMeter {
+          visibility: hidden;
+          appearance: none;
+          width: 50px;
+          height: 3px;
+          background-color: #fff;
+          transform: rotate(-90deg);
+          position: absolute;
+          bottom: calc(100% + 30px);
+          margin: auto;
+          left: -14px;
+          cursor: pointer;
+          transition: visibility linear 0.5s;
+
+          &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background-color: #fff;
+            cursor: pointer;
+          }
+
+          &::-moz-range-thumb {
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background-color: #fff;
+            cursor: pointer;
+          }
+        }
+
+        &::before {
+          content: "";
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          bottom: 25px;
+        }
+      }
+    }
+
+    .actionBar {
+      position: absolute;
+      right: -64px;
+      bottom: 0;
+
+      .actionItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 48px;
+          height: 48px;
+          background-color: rgba(22, 24, 35, 0.06);
+          border-radius: 50%;
+          transition: background-color linear 0.3s;
+
+          &:hover {
+            cursor: pointer;
+            background-color: var(--button-hover-color);
+          }
+
+          svg {
+            font-size: 24px;
+          }
+
+          .likeBtn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+
+        .icon.active svg {
+          color: var(--selected-color);
+          animation: likeAnimate 0.7s ease-in-out;
+        }
+
+        @keyframes likeAnimate {
+          0% {
+            opacity: 0;
+          }
+
+          25% {
+            opacity: 0.5;
+            transform: scale(1.3);
+          }
+
+          50% {
+            opacity: 0.75;
+            transform: scale(1);
+          }
+
+          75% {
+            opacity: 1;
+            transform: scale(0.8);
+          }
+
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        span {
+          font-size: 13px;
+          margin-top: 6px;
+          padding: 0 7px 0 8px;
+          color: var(--sub-color);
+          font-weight: 500;
+        }
+      }
+
+      .like {
+        position: relative;
+
+        .isAnimating {
+          position: absolute;
+          width: 70px;
+          height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .likeAnimationLargePoint {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            position: absolute;
+            animation: big-animate 0.6s ease-in-out;
+
+            div {
+              position: absolute;
+              left: 50%;
+              width: 5px;
+              height: 5px;
+              border-radius: 50%;
+              background-color: palevioletred;
+              transform: rotate(calc(40deg * var(--i)));
+              transform-origin: 0 35px;
+            }
+
+            @keyframes big-animate {
+              0% {
+                transform: rotate(0);
+                opacity: 0;
+              }
+              25% {
+                opacity: 0.5;
+              }
+              50% {
+                opacity: 1;
+              }
+              75% {
+                opacity: 0.5;
+              }
+              100% {
+                transform: rotate(40deg);
+                opacity: 0;
+              }
+            }
+          }
+
+          .likeAnimationSmallPoint {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            position: absolute;
+            animation: small-animate 0.6s ease-in-out;
+
+            div {
+              position: absolute;
+              left: 50%;
+              width: 3px;
+              height: 3px;
+              border-radius: 50%;
+              background-color: palevioletred;
+              transform: rotate(calc(40deg * var(--i)));
+              transform-origin: 0 30px;
+            }
+
+            @keyframes small-animate {
+              0% {
+                transform: rotate(0);
+                opacity: 0;
+              }
+              25% {
+                opacity: 0.5;
+              }
+              50% {
+                opacity: 1;
+              }
+              75% {
+                opacity: 0.5;
+              }
+              100% {
+                transform: rotate(60deg);
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+
+      .comment {
+        margin: 16px 0;
+      }
+
+      .share {
+        position: relative;
+
+        &:hover .sharePopup {
+          display: block;
+        }
+
+        .sharePopup {
+          position: absolute;
+          bottom: calc(100% + 18px);
+          left: -6px;
+
+          .shareWith {
+            .icon {
+              width: 26px;
+              height: 26px;
+            }
+
+            &:not(:nth-child(3)) .icon svg {
+              color: #fff;
+              font-size: 12px;
+            }
+
+            &:nth-child(1) .icon {
+              background-color: var(--embed-color);
+            }
+            &:nth-child(2) .icon {
+              background-color: var(--twitter-color);
+            }
+            &:nth-child(3) .icon {
+              color: var(--facebook-color);
+              font-size: 26px;
+            }
+            &:nth-child(4) .icon {
+              background-color: var(--whatsApp-color);
+            }
+            &:nth-child(5) .icon {
+              background-color: var(--copyLink-color);
+            }
+          }
+
+          span {
+            font-size: 16px;
+            margin: 0;
+            color: var(--text-color);
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            width: 40%;
+            height: 20px;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #fff;
+            box-shadow: 0 -4px 32px rgb(0 0 0 / 10%);
+          }
+        }
+      }
+    }
+  }
+}

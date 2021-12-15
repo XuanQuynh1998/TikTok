@@ -1,0 +1,489 @@
+.contentContainer {
+  background-color: var(--background-color);
+  flex: 0 0 544px;
+  width: 544px;
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .userInfoContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 32px 15px;
+
+    .userInfo {
+      display: flex;
+      align-items: center;
+      position: relative;
+      text-decoration: none;
+
+      .avatarLink {
+        &:hover + .userInfoLink a {
+          text-decoration: underline;
+        }
+      }
+
+      .userInfoLink {
+        display: flex;
+        flex-direction: column;
+        margin: 0 12px;
+
+        a {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 25px;
+          margin-bottom: 0px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: flex;
+        }
+
+        .userInfoNickname {
+          display: flex;
+          color: var(--text-color);
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .followBtn {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 25px;
+      min-width: 124px;
+      max-width: 148px;
+      height: 36px;
+    }
+
+    .profileCardContainer {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      border-radius: 8px;
+      filter: drop-shadow(rgba(0, 0, 0, 0.16) 0px 4px 16px);
+      z-index: 1;
+
+      .profileCard {
+        position: relative;
+        width: 320px;
+        max-height: 279px;
+        background-color: var(--background-color);
+        padding: 20px;
+
+        .cardTop {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .profileAvatar {
+            width: 44px;
+            height: 44px;
+          }
+
+          .profileFollowBtn {
+            min-width: 88px;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 22px;
+            height: 36px;
+          }
+        }
+
+        .authorInfo {
+          margin-top: 8px;
+          display: flex;
+          flex-direction: column;
+
+          h1 {
+            font-weight: 600;
+            font-size: 18px;
+          }
+
+          span {
+            font-size: 14px;
+            line-height: 20px;
+          }
+        }
+
+        .cardLikeFollow {
+          margin-top: 8px;
+          min-height: 20px;
+          display: flex;
+          align-items: center;
+
+          .cardLikeFollowItem {
+            line-height: 20px;
+            font-weight: 600;
+            font-size: 17px;
+
+            span {
+              font-size: inherit;
+              color: var(--sub-color);
+              margin: 0 16px 0 8px;
+            }
+          }
+        }
+
+        .cardSignature {
+          font-size: 14px;
+          line-height: 20px;
+          white-space: pre-line;
+          padding-top: 16px;
+          margin-top: 16px;
+          border-top: 1px solid rgba(22, 24, 35, 0.2);
+        }
+      }
+    }
+  }
+
+  .videoInfoContainer {
+    padding: 0 32px;
+
+    .videoTitle {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .music {
+      svg {
+        font-size: 20px !important;
+        margin-right: 4px;
+      }
+
+      display: flex;
+      align-items: center;
+      line-height: 22px;
+      font-weight: 600;
+      margin: 10px 0 16px;
+    }
+
+    .actionContainer {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+
+      .actionLeft {
+        display: flex;
+        align-items: center;
+
+        .action {
+          display: flex;
+          align-items: center;
+          margin-right: 20px;
+
+          .actionIcon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            margin-right: 6px;
+            background-color: rgba(22, 24, 35, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .iconLike {
+              font-size: 20px !important;
+            }
+          }
+
+          .actionLike {
+            &:hover {
+              background-color: #ddd;
+              cursor: pointer;
+            }
+          }
+
+          strong {
+            font-size: 13px;
+            font-weight: normal;
+          }
+        }
+      }
+
+      .actionRight {
+        display: flex;
+        align-items: center;
+
+        p {
+          color: var(--sub-color);
+          font-weight: 600;
+          margin-right: 8px;
+          line-height: 24px;
+        }
+
+        .shareGroup {
+          display: flex;
+          align-items: center;
+
+          .shareLink {
+            $shareLink-size: 24px;
+            display: inline-block;
+            width: $shareLink-size;
+            height: $shareLink-size;
+            margin-right: 8px;
+            border-radius: 50%;
+
+            .shareItem {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 100%;
+              height: 100%;
+
+              svg {
+                color: #fff;
+              }
+            }
+
+            &:nth-child(1) {
+              background-color: var(--whatsApp-color);
+            }
+
+            &:nth-child(2) {
+              svg {
+                color: var(--facebook-color);
+                font-size: $shareLink-size !important;
+              }
+            }
+            &:nth-child(3) {
+              background-color: var(--twitter-color);
+            }
+
+            &:nth-child(4) {
+              background-color: var(--embed-color);
+              svg {
+                font-size: 12px !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .copyLinkContainer {
+      width: 480px;
+      height: 32px;
+      border: 1px solid rgba(18, 18, 18, 0.12);
+      border-radius: 2px;
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+
+      .linkContainer {
+        font-size: 14px;
+        line-height: 20px;
+        color: var(--sub-color);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 5px 12px;
+        background-color: rgba(22, 24, 35, 0.06);
+      }
+
+      .copyLink {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        cursor: pointer;
+
+        p {
+          font-weight: 600;
+          padding: 7px 16px;
+          font-size: 14px;
+          line-height: 32px;
+          color: var(--title-color);
+        }
+      }
+    }
+  }
+  .commentContainer {
+    padding: 16px 32px 0;
+    background-color: rgb(248, 248, 248);
+    flex: 1;
+
+    .commentItem {
+      margin-bottom: 16px;
+
+      .commentContent {
+        display: flex;
+
+        .userAvatar {
+          margin-right: 12px;
+        }
+
+        .commentContentContainer {
+          flex: 1;
+
+          .username {
+            font-size: 18px;
+            line-height: 25px;
+            font-weight: 600;
+          }
+
+          .commentText {
+            padding: 4px 40px 0 0;
+
+            p {
+              line-height: 22px;
+              color: rgb(18, 18, 18);
+            }
+
+            .bottomContainer {
+              margin-top: 6px;
+
+              .commentTime {
+                font-size: 14px;
+                line-height: 20px;
+                color: rgba(18, 18, 18, 0.5);
+                margin-right: 24px;
+              }
+
+              .reply {
+                color: rgba(22, 24, 35, 0.5);
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 600;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+
+        .like {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          span {
+            font-size: 13px;
+            line-height: 17px;
+            color: rgba(22, 24, 35, 0.5);
+            cursor: default;
+          }
+
+          i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            svg {
+              font-size: 21px !important;
+              color: #87888e !important;
+            }
+          }
+        }
+      }
+      .moreContents {
+        margin-top: 14px;
+        display: flex;
+        align-items: center;
+        color: rgba(18, 18, 18, 0.5);
+        padding-left: 52px;
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 20px;
+
+          font-weight: 600;
+        }
+
+        svg {
+          margin-left: 6px;
+          font-size: 12px !important;
+        }
+      }
+    }
+  }
+  .commentPostContainer {
+    display: flex;
+    align-items: center;
+    margin: 0px 32px;
+    padding: 21px 0px;
+
+    .commentInputContainer {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      background: rgba(22, 24, 35, 0.06);
+      border: 1px solid transparent;
+      border-radius: 8px;
+      position: relative;
+
+      .commentInput {
+        margin: 9px 0;
+        cursor: text;
+        margin: 9px 90px 9px 16px;
+        padding: 0px;
+        word-break: break-all;
+        white-space: pre-line;
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        min-height: 18px;
+        max-height: 80px;
+
+        .input {
+          position: absolute;
+          width: 100%;
+          z-index: 1;
+          border: none;
+          outline: none;
+        }
+
+        .placeholder {
+          font-size: 15px;
+          line-height: 18px;
+          color: rgba(22, 24, 35, 0.75);
+          position: absolute;
+          width: 100%;
+        }
+      }
+
+      .postCommentAction {
+        display: flex;
+        gap: 16px;
+        margin: 0 16px;
+
+        .icon {
+          display: flex;
+          align-items: center;
+
+          svg {
+            font-size: 24px !important;
+          }
+        }
+      }
+    }
+
+    .postComment {
+      font-weight: 600;
+      margin: 0px 4px 0 16px;
+      font-size: 14px;
+      color: rgba(22, 24, 35, 0.34);
+      line-height: 14px;
+    }
+  }
+}
