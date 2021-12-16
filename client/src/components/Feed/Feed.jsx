@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
+import MediaQuery from "react-responsive";
 
 import styles from "./Feed.module.scss";
 import Video from "./Video/Video";
+import MobileTabletVideo from "./MobileTabletVideo/MobileTabletVideo";
 import DetailVideo from "./DetailVideo/DetailVideo";
 import { video1, video2, video3, video4, video5 } from "../../assets";
 import { useStore } from "../../context/store";
@@ -27,13 +29,26 @@ export default function Feed() {
   }, [dispatch, videos]);
 
   return (
-    <div className={styles.feed}>
-      <div className={styles.feedVideos}>
-        {listVideoSrc.map((src, index) => (
-          <Video videoSrc={src} key={index} />
-        ))}
-      </div>
-      {videoClicked.isClicked && <DetailVideo />}
-    </div>
+    <>
+      <MediaQuery minWidth={1224}>
+        <div className={styles.feed}>
+          <div className={styles.feedVideos}>
+            {listVideoSrc.map((src, index) => (
+              <Video videoSrc={src} key={index} />
+            ))}
+          </div>
+          {videoClicked.isClicked && <DetailVideo />}
+        </div>
+      </MediaQuery>
+      <MediaQuery maxWidth={1224}>
+        <div className={styles.mobileTabletFeed}>
+          <div className={styles.mobileTabletVideos}>
+            {listVideoSrc.map((src, index) => (
+              <MobileTabletVideo videoSrc={src} key={index} />
+            ))}
+          </div>
+        </div>
+      </MediaQuery>
+    </>
   );
 }

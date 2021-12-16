@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-export default function useOnScreen(videoRef) {
+export default function useOnScreen(videoRef, type) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const options = {
       root: null,
-      rootMargin: "-60px 0px 0px 0px",
+      rootMargin: type === "mobileTablet" ? "0px 0px 0px 0px" : "-60px 0px 0px 0px",
       threshold: 0.5,
     };
 
@@ -24,7 +24,7 @@ export default function useOnScreen(videoRef) {
     return () => {
       observer.disconnect();
     };
-  }, [videoRef, isVisible]);
+  }, [videoRef, isVisible, type]);
 
   return isVisible;
 }

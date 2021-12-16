@@ -21,7 +21,7 @@ $volumeBtn-size: 40px;
       justify-content: center;
       position: absolute;
       top: 20px;
-      z-index: 1;
+      z-index: 10;
 
       &:hover {
         opacity: 0.7;
@@ -32,6 +32,7 @@ $volumeBtn-size: 40px;
       left: 20px;
       background-color: $button-color;
       cursor: pointer;
+      z-index: 10;
 
       svg {
         color: #fff !important;
@@ -54,7 +55,7 @@ $volumeBtn-size: 40px;
       border-radius: 100px;
       background-color: $button-color;
       cursor: pointer;
-      z-index: 1;
+      z-index: 10;
     }
   }
 
